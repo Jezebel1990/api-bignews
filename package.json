@@ -1,0 +1,25 @@
+{
+  "name": "api-bignews",
+  "version": "1.0.0",
+  "description": "API for Big News",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jezebel1990/api-bignews.git"
+  },
+  "keywords": [],
+  "author": "Jezebel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jezebel1990/api-bignews/issues"
+  },
+  "homepage": "https://github.com/Jezebel1990/api-bignews#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  }
+}
