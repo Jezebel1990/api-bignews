@@ -21,5 +21,5 @@ module.exports = {
     createService,
     findAllService,
     findByIdService,
-    updateService
+    updateService,
 };
