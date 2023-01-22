@@ -1,7 +1,8 @@
 const userService = require('../services/user.service');
 
 const create = async (req, res) => {
-const {name, username, email, password, avatar,background} = req.body;
+try{
+   const {name, username, email, password, avatar,background} = req.body;
 
 if (!name || !username || !email || !password || !avatar || !background) {
  res.status(400).send({message: "Submit all fields for registration"});
@@ -23,28 +24,38 @@ if (!user) {
             avatar,
             background,
       },
-
    });
+} catch (err) {
+   res.status(500).send({message: err.message})
+}
+
 };
 const findAll = async (req, res) => {
+   try{
  const users = await userService.findAllService();
 
  if(users.length === 0) {
    return res.status(400).send({ message: "There are no registered users"})
  }
- res.send(users)
 
+ res.send(users);} catch (err) {
+   res.status(500).send({message: err.message})
+ }
 };
 
+
+
 const findById = async (req, res) => {
-
+   try{
    const user = req.user;
-
-   res.send(user)
+   res.send(user);} catch (err) {
+      res.status(500).send({message: err.message})
+   }
 };
 
 
 const update = async (req, res) => {
+ try { 
    const { name, username, email, password, avatar,background } = req.body;
 
 if (!name && !username && !email && !password && !avatar && !background) {
@@ -64,6 +75,9 @@ await userService.updateService(
 );
 
 res.send({ message: "User successfully update!" });
+} catch (err) {
+   res.status(500).send({ message: err.message});
+}
 };
 
 
