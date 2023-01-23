@@ -3,9 +3,9 @@ import mongoose from 'mongoose';
 const connectDatabase = () => {
     console.log("Wait connection to the database")
 
-    mongoose.connect("mongodb+srv://root:root@cluster0.udjzbcv.mongodb.net/?retryWrites=true&w=majority",
+    mongoose.connect( process.env.MONGODB_URI ,
     {useNewUrlParser: true, useUnifiedTopology: true}
-    ).then(() => console.log("MongoDB Atlas Connected")).catch((error) => console.log(error))
+    ).then(() => console.log("MongoDB Atlas Connected")).catch((err) => console.log(err))
 };
 
 export default connectDatabase;
