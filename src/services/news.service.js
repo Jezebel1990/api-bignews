@@ -25,3 +25,5 @@ export const updateService = (id, title, text, banner) => News.findOneAndUpdate(
         rawResult: true,
     }
     );
+
+    export const eraseService = (id) => News.findByIdAndDelete({ _id: id });
